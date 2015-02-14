@@ -593,6 +593,9 @@ func Float64(val interface{}) float64 {
 	case string:
 		f, _ := strconv.ParseFloat(val.(string), 64)
 		return f
+	default:
+		f, _ := strconv.ParseFloat(String(val), 64)
+		return f
 	}
 
 	panic("Reached")
