@@ -48,7 +48,7 @@ const (
 )
 
 const (
-	KindTime reflect.Kind = iota + 1000000000
+	KindTime     reflect.Kind = iota + 1000000000
 	KindDuration
 )
 
@@ -341,7 +341,7 @@ func Bytes(val interface{}) []byte {
 		return t
 
 	default:
-		return []byte(fmt.Sprintf("%v", val))
+		return []byte(fmt.Sprint(val))
 	}
 
 	panic("Reached.")
@@ -405,7 +405,7 @@ func String(val interface{}) string {
 		return string(t)
 
 	default:
-		return fmt.Sprintf("%v", val)
+		return fmt.Sprint(val)
 	}
 
 	return string(buf)
@@ -469,7 +469,6 @@ func Map(val interface{}) map[string]interface{} {
 	occurs.
 */
 func Int64(val interface{}) int64 {
-
 	switch t := val.(type) {
 	case int:
 		return int64(t)
